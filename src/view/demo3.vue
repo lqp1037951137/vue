@@ -1,13 +1,9 @@
 <template>
-    <div></div>
+  <div><img v-for="img in imageList" v-lazy="img" :key="img"/></div>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

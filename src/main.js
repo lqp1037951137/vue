@@ -5,17 +5,22 @@ import App from './App'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
-import * as echarts  from 'echarts'
+import * as echarts from 'echarts'
 import 'vant/lib/index.css';
+import {Lazyload} from 'vant'
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 Vue.use(ElementUI)
 Vue.use(echarts)
+Vue.use(Lazyload, {
+  lazyComponent: true
+})
 
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
