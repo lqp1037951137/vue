@@ -1,12 +1,9 @@
 <template>
-  <div class="main">
-    <div class="left" v-bind:class="openMenu ? ' left-o' : ' left-c'"></div>
-    <div class="right">
-      <div class="item" ref="echarts1"></div>
-      <div class="item" ref="echarts2"></div>
-      <div class="item" ref="echarts3"></div>
-      <div class="item" ref="echarts4"></div>
-    </div>
+  <div class="right">
+    <div class="item" ref="echarts1"></div>
+    <div class="item" ref="echarts2"></div>
+    <div class="item" ref="echarts3"></div>
+    <div class="item" ref="echarts4"></div>
   </div>
 </template>
 
@@ -14,9 +11,7 @@
 import * as echarts from "echarts";
 export default {
   data() {
-    return {
-      openMenu: true
-    };
+    return {};
   },
   mounted() {
     const echarts1 = echarts.init(this.$refs.echarts1);
@@ -55,8 +50,9 @@ export default {
     echarts2.setOption({
       title: {
         text: "南丁格尔玫瑰图",
-        subtext: "纯属虚构",
-        left: "center"
+        // subtext: "纯属虚构",
+        left: "center",
+        top: 10
       },
       tooltip: {
         trigger: "item",
@@ -128,7 +124,7 @@ export default {
             show: true,
             position: "outside",
             formatter: "{d}%",
-            color:'#000000'
+            color: "#000000"
           },
           data: [
             { value: 30, name: "rose 1" },
@@ -143,6 +139,64 @@ export default {
         }
       ]
     });
+
+    echarts3.setOption({
+      xAxis: {
+        type: "category",
+        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      },
+      tooltip: {
+        show: true,
+        formatter: "{a}: {c}"
+      },
+      yAxis: {
+        type: "value"
+      },
+      legend: {
+        show: true,
+        data: ["aa", "bb", "cc"]
+      },
+      series: [
+        {
+          name: "aa",
+          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          type: "line",
+          smooth: true
+        },
+        {
+          name: "bb",
+          data: [1200, 888, 854, 723, 620, 840, 356],
+          type: "line",
+          smooth: true
+        },
+        {
+          name: "cc",
+          data: [984, 652, 514, 879, 463, 463, 644],
+          type: "line",
+          smooth: true
+        }
+      ]
+    });
+
+    echarts4.setOption({
+      xAxis: {
+        type: "category",
+        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      },
+      yAxis: {
+        type: "value"
+      },
+      series: [
+        {
+          data: [120, 200, 150, 80, 70, 110, 130],
+          type: "bar",
+          showBackground: true,
+          backgroundStyle: {
+            color: "rgba(180, 180, 180, 0.3)"
+          }
+        }
+      ]
+    });
   },
 
   methods: {}
@@ -150,26 +204,8 @@ export default {
 </script>
 
 <style>
-.main {
-  width: 100vw;
-  height: 100vh;
-  background: rgb(120, 121, 122);
-  display: flex;
-}
-.left {
-  background: #2a384c;
-  height: 100%;
-  transition: flex 0.3s ease;
-}
-
-.left-o {
-  flex: 1;
-}
-.left-c {
-  flex: 0;
-}
 .right {
-  flex: 9;
+  flex: 90;
   background: #e6e8eb;
   height: 100%;
   display: flex;
