@@ -8,8 +8,10 @@ import router from './router'
 import * as echarts from 'echarts'
 import 'vant/lib/index.css';
 import {Lazyload} from 'vant'
-Vue.config.productionTip = false
+import less from 'less'
 
+Vue.config.productionTip = false
+Vue.use(less)
 Vue.use(ElementUI)
 Vue.use(echarts)
 Vue.use(Lazyload, {

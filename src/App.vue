@@ -17,7 +17,7 @@
               <ul>
                 <li
                   v-for="(item, index) in menuData"
-                  :key="item"
+                  :key="item.name"
                   :class="{ active: index === selectMenuIndex }"
                   @click="clickMenu(index)"
                 >
@@ -56,11 +56,11 @@ export default {
         },
         {
           name: "标题4",
-          path: "/"
+          path: "/page4"
         },
         {
           name: "标题5",
-          path: "/"
+          path: "/page5"
         }
       ],
       selectMenuIndex: 0
@@ -69,16 +69,18 @@ export default {
   methods: {
     clickMenu(index) {
       this.selectMenuIndex = index;
-      // switch(index){
-      //   case 0:
-      //     this.$route.
-      // }
     }
   }
 };
 </script>
 
-<style>
+<style lang="less">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .main {
   width: 100vw;
   height: 100vh;
@@ -143,18 +145,18 @@ ul li a {
   display: block;
 }
 a:link {
-  text-decoration: none; /* 指正常的未被访问过的链接*/
+  text-decoration: none;
 }
 
 a:visited {
-  text-decoration: none; /*指已经访问过的链接*/
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none; /*指鼠标在链接*/
+  text-decoration: none;
 }
 
 a:active {
-  text-decoration: none; /* 指正在点的链接*/
+  text-decoration: none;
 }
 </style>

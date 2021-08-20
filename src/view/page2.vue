@@ -15,11 +15,11 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+    
       const echarts1 = echarts.init(this.$refs.echarts1);
       const echarts2 = echarts.init(this.$refs.echarts2);
       const echarts3 = echarts.init(this.$refs.echarts3);
       const echarts4 = echarts.init(this.$refs.echarts4);
-
       echarts1.setOption({
         xAxis: {
           type: "category",
@@ -40,7 +40,6 @@ export default {
             data: [80, 100, 130, 60, 40, 50, 120],
             type: "bar"
           },
-          ,
           {
             data: [40, 60, 30, 70, 20, 10, 50],
             type: "bar"
@@ -199,13 +198,14 @@ export default {
         ]
       });
     });
+  
   },
 
   methods: {}
 };
 </script>
 
-<style>
+<style lang="less">
 .right {
   flex: 90;
   background: #e6e8eb;
