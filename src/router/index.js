@@ -6,6 +6,7 @@ import page2 from '@/view/page2';
 import page3 from '@/view/page3';
 import page4 from '@/view/page4';
 import page5 from '@/view/page5';
+import page6 from '@/view/page6';
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/page5',
       name: 'page5',
       component: page5
+    },
+    {
+      path: '/page6',
+      name: 'page6',
+      component: page6
     },
     {
       path: '/hello',

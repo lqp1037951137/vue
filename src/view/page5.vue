@@ -12,60 +12,45 @@ export default {
   },
   mounted() {
     const myEcharts = echarts.init(this.$refs.echarts4);
-    const axis = [
-      "1月",
-      "2月",
-      "3月",
-      "4月",
-      "5月",
-      "6月",
-      "7月",
-      "8月",
-      "9月",
-      "10月",
-      "11月",
-      "12月"
-    ];
-    const data2 = [
-      3000,
-      2800,
-      900,
-      1000,
-      800,
-      700,
-      1400,
-      1300,
-      900,
-      1000,
-      800,
-      600
-    ];
-    const data = [
-      1500,
-      2200,
-      1900,
-      1200,
-      300,
-      900,
-      400,
-      1900,
-      2900,
-      1500,
-      1600,
-      1200
+    const pieData = [
+      {
+        name: "淘宝",
+        value: 11231
+      },
+      {
+        name: "京东",
+        value: 22673
+      },
+      {
+        name: "唯品会",
+        value: 6123
+      },
+      {
+        name: "1号店",
+        value: 8989
+      },
+      {
+        name: "聚美优品",
+        value: 6700
+      }
     ];
     myEcharts.setOption({
-      xAxis: {
-        type: "category",
-        data: axis,
-        boundaryGap: false
-      },
-      yAxis: {
-        type: "value",
-        scale: true
-      },
       series: [
-      
+        {
+          type: "pie",
+          data: pieData,
+          label: {
+            show: true,
+            formatter: function(arg) {
+              // console.log(arg);
+              return arg.name + " " + arg.value + "元\n" + arg.percent + "%";
+            }
+          },
+          // radius: ['50%','75%']
+          // roseType: "radius",
+          selectedMode: "single", // multiple single
+          selectedOffset: 30
+        }
       ]
     });
   }

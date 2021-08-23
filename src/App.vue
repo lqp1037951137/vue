@@ -21,6 +21,9 @@
                   :class="{ active: index === selectMenuIndex }"
                   @click="clickMenu(index)"
                 >
+
+                    
+                        
                   <router-link :to="item.path">{{ item.name }}</router-link>
                 </li>
               </ul>
@@ -61,6 +64,10 @@ export default {
         {
           name: "标题5",
           path: "/page5"
+        },
+        {
+          name: "标题6",
+          path: "/page6"
         }
       ],
       selectMenuIndex: 0
@@ -83,6 +90,7 @@ export default {
 
 .main {
   width: 100vw;
+ 
   height: 100vh;
   background: rgb(120, 121, 122);
   display: flex;
@@ -90,16 +98,18 @@ export default {
 .left {
   background: #2a384c;
   height: 100%;
-  transition: flex 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
 }
-
 .left-o {
   flex: 10;
+  min-width: 120px;
 }
 .left-c {
   flex: 3;
+  min-width: 50px;
 }
+
 .title {
   color: white;
   padding: 10px 15px;
@@ -115,11 +125,12 @@ export default {
   top: 0px;
 }
 .fade-enter-active {
-  transition: opacity 0.5s;
+  transition: all 0.5s;
 }
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
+  
 }
 ul {
   margin-top: 20px;

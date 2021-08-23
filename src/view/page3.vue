@@ -33,6 +33,13 @@ export default {
           return arg[0].name + " : " + arg[0].data;
         }
       },
+      grid: {
+        show: true
+        // borderWidth: 10,
+        // borderColor: "red",
+        // top: 20,
+        // left: 20
+      },
       toolbox: {
         feature: {
           saveAsImage: {},
@@ -47,13 +54,27 @@ export default {
       xAxis: {
         type: "category",
         data: ["张三", "李四", "王五", "赵六", "刘七", "陈八", "蔡九", "曾十"]
+        // position: "top"
       },
       yAxis: {
         type: "value"
+        // position: "right"
       },
+      dataZoom: [
+        {
+          type: "slider",
+          xAxisIndex: 0
+        },
+        {
+          type: "slider",
+          yAxisIndex: 0,
+          start: 0,
+          end: 80
+        }
+      ],
       legend: {
         data: ["语文", "数学"],
-        bottom:0
+        bottom: 0
       },
       series: [
         {
@@ -68,9 +89,7 @@ export default {
         }
       ]
     });
-    
- 
- }
+  }
 };
 </script>
 
