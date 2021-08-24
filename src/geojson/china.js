@@ -26743,7 +26743,7 @@ const json = {
     "type": "Feature",
     "properties": {
       "adcode": 810000,
-      "name": "香港特别行政区",
+      "name": "香港",
       "center": [114.173355, 22.320048],
       "centroid": [114.134357, 22.377366],
       "childrenNum": 18,

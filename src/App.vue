@@ -66,8 +66,16 @@ export default {
           path: "/page5"
         },
         {
-          name: "标题6",
+          name: "地图6",
           path: "/page6"
+        },
+        {
+          name: "雷达图7",
+          path: "/page7"
+        },
+        {
+          name: "仪表盘8",
+          path: "/page8"
         }
       ],
       selectMenuIndex: 0

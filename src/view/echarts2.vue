@@ -8,7 +8,7 @@
 <script>
 import * as echarts from "echarts";
 import axios from "axios";
-import china from "../china";
+import china from "../geojson/china";
 
 export default {
   data() {

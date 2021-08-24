@@ -1,21 +1,31 @@
 <template>
   <div class="con">
     <div class="echart" ref="echarts4"></div>
+    <button @click="highlight">高亮</button>
   </div>
 </template>
 
 <script>
 import * as echarts from "echarts";
+import "../../static/walden";
+
 export default {
   data() {
-    return {};
+    return {
+      myEcharts:{}
+    };
   },
   mounted() {
-    const myEcharts = echarts.init(this.$refs.echarts4);
+    this.myEcharts = echarts.init(this.$refs.echarts4, "walden");
     const pieData = [
       {
         name: "淘宝",
-        value: 11231
+        value: 11231,
+        emphasis: {
+          itemStyle: {
+            color: "pink"
+          }
+        }
       },
       {
         name: "京东",
@@ -34,7 +44,10 @@ export default {
         value: 6700
       }
     ];
-    myEcharts.setOption({
+    this.myEcharts.setOption({
+      tooltip:{
+        show:true
+      },
       series: [
         {
           type: "pie",
@@ -53,6 +66,20 @@ export default {
         }
       ]
     });
+  },
+  methods:{
+    highlight(){
+      this.myEcharts.dispatchAction({
+        type:'highlight',
+        seriesIndex:0,
+        dataIndex:0
+      })
+      this.myEcharts.dispatchAction({
+        type:'showTip',
+        seriesIndex:0,
+        dataIndex:2
+      })
+    }
   }
 };
 </script>
@@ -63,6 +90,7 @@ export default {
   flex: 90;
   background: #e6e8eb;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   .echart {

@@ -21,6 +21,11 @@ export default {
       const echarts3 = echarts.init(this.$refs.echarts3);
       const echarts4 = echarts.init(this.$refs.echarts4);
       echarts1.setOption({
+        toolbox:{
+          feature:{
+            saveAsImage:{}
+          }
+        },
         xAxis: {
           type: "category",
           data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -197,8 +202,11 @@ export default {
           }
         ]
       });
+
+      echarts.connect([echarts1,echarts2])
+
     });
-  
+
   },
 
   methods: {}
